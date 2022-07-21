@@ -20,7 +20,10 @@
 
    prepearing
    segmentation
-
+   boxing
+   finding
+   video_marking
+   last_words
 
 Подробнее о коде:
 --------------------
