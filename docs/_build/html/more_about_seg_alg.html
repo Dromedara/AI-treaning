@@ -4,8 +4,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; AI-treaning 1.0 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Пару слов об алгоритме сегментации &#8212; AI-treaning 1.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -13,8 +14,10 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <link rel="index" title="Index" href="#" />
+    <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Какие рычажки подкручивать, если что" href="refactor_segmentation.html" />
+    <link rel="prev" title="Завершение" href="last_words.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -31,12 +34,11 @@
 
           <div class="body" role="main">
             
-
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
-</div>
+  <section id="id1">
+<h1>Пару слов об алгоритме сегментации<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h1>
+<p>Для сегментации в нашем случае используется модель MaskR-CNN - она создает ограничивающие рамки и маски сегментации для каждого экземпляра объекта на изображении. Основана на сети Feature Pyramid Network (FPN) и магистрали ResNet101.</p>
+<p>Поитать подробнее можно здесь: <a class="reference external" href="https://github.com/matterport/Mask_RCNN">github разботчика</a>, <a class="reference external" href="https://viso.ai/deep-learning/mask-r-cnn/">первая интересная статья</a>, <a class="reference external" href="https://www.geeksforgeeks.org/mask-r-cnn-ml/">вторая интересная статья</a> и <a href="#id4"><span class="problematic" id="id5">`третья интересная статья`_</span></a>.</p>
+</section>
 
 
           </div>
@@ -58,13 +60,13 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="prepearing.html">Разметка набора данных.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="segmentation.html">Сегментация</a></li>
-<li class="toctree-l1"><a class="reference internal" href="boxing.html">3. Боксинг маркеров</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boxing.html">3. Боксинг* маркеров</a></li>
 <li class="toctree-l1"><a class="reference internal" href="finding.html">Поиск маркера</a></li>
 <li class="toctree-l1"><a class="reference internal" href="video_marking.html">Разметка видео</a></li>
 <li class="toctree-l1"><a class="reference internal" href="last_words.html">Завершение</a></li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="more_about_seg_alg.html">Пару слов об алгоритме сегментации</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Пару слов об алгоритме сегментации</a></li>
 <li class="toctree-l1"><a class="reference internal" href="refactor_segmentation.html">Какие рычажки подкручивать, если что</a></li>
 </ul>
 <ul>
@@ -76,6 +78,8 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="last_words.html" title="previous chapter">Завершение</a></li>
+      <li>Next: <a href="refactor_segmentation.html" title="next chapter">Какие рычажки подкручивать, если что</a></li>
   </ul></li>
 </ul>
 </div>
@@ -108,6 +112,9 @@
       Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
+      |
+      <a href="_sources/more_about_seg_alg.rst.txt"
+          rel="nofollow">Page source</a>
     </div>
 
     

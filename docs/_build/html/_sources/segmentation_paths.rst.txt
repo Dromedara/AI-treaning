@@ -1,0 +1,7 @@
+Сегментация
+==============
+
+.. _segmentationpaths:
+
+Segmentation:
+~~~~~~~~~~~~~~~~~

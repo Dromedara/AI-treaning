@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>2. Сегментация &#8212; AI-treaning 1.0 documentation</title>
+    <title>Сегментация &#8212; AI-treaning 1.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -16,7 +16,8 @@
     <script src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="1. Разметка набора данных." href="prepearing.html" />
+    <link rel="next" title="3. Боксинг маркеров" href="boxing.html" />
+    <link rel="prev" title="Разметка набора данных." href="prepearing.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -34,43 +35,59 @@
           <div class="body" role="main">
             
   <section id="id1">
-<h1>2. Сегментация<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h1>
-<section id="id2">
-<h2>2.1. Что это такое и с чем это есть<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
-<p>Для обучения полноценного ИИ не хватает 1000 изображений, а вручную маркировать 6000-7000 слишком сложно. Поэтому дальнейшая обработка будет производиться с помощью модели.</p>
-<p>Мы создадим и обучим ее в Google Colab. Код лежит в “Segmentation.ipynb”.</p>
-<p>Скопируйте google colab на свой google drive. Создайте аналогичную структуру в корневой папке google drive:</p>
+<h1>Сегментация<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h1>
+<p>Для обучения полноценного ИИ не хватает 1000 изображений, а вручную маркировать 6000-7000 слишком сложно. Поэтому дальнейшая обработка будет производиться с помощью модели. Мы создадим и обучим ее в Google Colab. Код лежит в github репозитории <strong>“code/Segmentation.ipynb”</strong>.</p>
+<p>Для удобства, блоки кода пронумерованы (рис. 11):</p>
 <figure class="align-center" id="id7">
-<a class="reference internal image-reference" href="_images/Дерево_1.png"><img alt="alternate text" src="_images/Дерево_1.png" style="width: 257.0px; height: 181.0px;" /></a>
+<a class="reference internal image-reference" href="_images/нумерация.png"><img alt="alternate text" src="_images/нумерация.png" style="width: 464.4px; height: 97.8px;" /></a>
 <figcaption>
-<p><span class="caption-text">Структура файлов</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text">рис.11</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<p>Загрузите кадры вашего набора данных в папку: <strong>VisionProject/Dataset/Data/</strong> Затем загрузите файл <strong>“Labels.json”</strong>, который у вас был после предыдущих шагов. <strong>“NewLabels”</strong> может быть копией <strong>“Labels”</strong>.</p>
-<p>Эта структура используется исключительно для удобства использования google colab.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Вы можете использовать свою собственную структуру, если хотите, но вам придется изменить <strong>пути к файлам</strong>.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Некоторые блоки кода даны с результатами их работы. Ориентируйтес на них, как на индикатор правильности работы.</p>
+</div>
+<section id="id2">
+<h2>Подготовка<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<p>Если не хотите переживать о файловых путях, создайте аналогичную структуру в корневой папке google drive:</p>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="_images/Дерево_1.png"><img alt="alternate text" src="_images/Дерево_1.png" style="width: 257.0px; height: 181.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">Структура файлов</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Загрузите кадры вашего набора данных в папку: <strong>VisionProject/Dataset/Data/</strong> Затем загрузите файл <strong>“Labels.json”</strong>, который у вас был после разметки кадров шагов. <strong>“NewLabels”</strong> может не существовать вовсе, либо быть копией <strong>“Labels”</strong>
+Так же <strong>необходимо залить видео</strong>, которые послужать исходным материалом для новых размеченных кадров. Их советую подгружать в папку <strong>VisionProject/Videos</strong>.</p>
+<p>Вы можете использовать свою собственную структуру, если хотите, но вам придется изменить <strong>пути к файлам</strong> (Подробнее здесь: <a class="reference internal" href="index.html#mainfails"><span class="std std-ref">Файловые пути: что могло пойти не так?</span></a>)</p>
+<p><strong>Обязательно скопируйте</strong> google collab из <strong>“code/Segmentation.ipynb”</strong> на свой google drive.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Collab должен лежать <strong>вне</strong> папки <strong>VisionProject</strong></p>
 </div>
 </section>
 <section id="id3">
-<h2>2.2. Обучение модели (сегментация)<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
-<p>Если вы правильно выполнили предыдущие шаги, вам остается только запускать блоки кода один за другим. Если что-то пошло не так, обращайтесь вот сюда:</p>
+<h2>Обучение модели (сегментация)<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<p>Процесс обучения модели происходит в блоках с <strong>#1</strong> по <strong>#13</strong>. Если вы правильно выполнили предыдущие шаги, вам остается только запускать блоки кода один за другим. Потребуется только одно дополнительные действие: в блоке <strong>#3</strong> отребуется дать разрешение на подключение к гугл диску (рис 12).</p>
+<figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="_images/разрешение.png"><img alt="alternate text" src="_images/разрешение.png" style="width: 746.4000000000001px; height: 200.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">Запрос на разрешение</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Если что-то пошло не так, обращайтесь вот сюда: <a class="reference internal" href="all_about_paths.html#mainfailinf"><span class="std std-ref">Какие вообще пути встречаются:</span></a> и сюда <a class="reference internal" href="seg_paths.html#segmentationpaths"><span class="std std-ref">Сегментация. Блоки, использующие фаловые пути</span></a>, так как с вероятностью в 99% проблема будет связана с путями.</p>
 <p>Обучение может длится порядка <strong>3-6 часов</strong>, в зависимости от стабильности интернета и объема исходного датасета.</p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <p>На протяжение всего времени обучения вам необходимо быть непосредственно вблизи работающего колаба, так как во избежания использования ботами, при длительном бездействии пользователя колаб просит <strong>пройти капчу</strong>. Если вы не успеваете среагировать, весь прогресс <strong>сбрасывается</strong>.</p>
 </div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>В случае появления проблем, проверьте файловые пути.</p>
-</div>
 </section>
 <section id="id4">
-<h2>2.3 Разметка новых кадров<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
-<p>Итак, загрузите видео в папку <strong>VisionProject/Videos/</strong> и внесите названия в блок.</p>
+<h2>Разметка новых кадров<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
+<p>Разметка новых кадров начинается с блока <strong>#14</strong> и идет до конца.
+Напомнаю, что видео лежат в папке <strong>VisionProject/Videos/</strong>. Внесите названия в блок <strong>#15</strong> (Можно ставить сколько угодно вызовов функций, главное не забывайте менять названия видео).</p>
 <p><strong>Пример</strong>
-Для видео с названием <em>video1</em> строка кода, отвечающая за подключение будет выглядеть как:</p>
+Для видео с названием <strong>video1</strong> строка кода, отвечающая за подключение будет выглядеть как:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">get_frames</span><span class="p">(</span><span class="s1">&#39;/content/drive/MyDrive/VisionProject/Videos/video1.mp4&#39;</span><span class="p">,</span> <span class="s1">&#39;./videos/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -79,14 +96,19 @@
 <p class="admonition-title">Attention</p>
 <p>Разметка может длится несколько часов, и вам так же необходимо следить за работой колаба.</p>
 </div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Блоки с <strong>#33</strong> по <strong>#37</strong> нужны для визуальной тестировки результата. Их можно пропустить.</p>
+</div>
 </section>
 <section id="id5">
-<h2>2.4 Получение готового датасета<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h2>
-<p>По окончании выполнения всех блоков неархивированный полученный датасет будет загружен в папку <strong>NewDataset/Data</strong>, архивиованный: <strong>NewDataset/dataset.zip</strong>, аннотации к нему будут лежать в файле <strong>NewLabels</strong>.</p>
+<h2>Получение готового датасета<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h2>
+<p>По окончании выполнения всех блоков неархивированный полученный датасет будет загружен в папку <strong>VisionProject/NewDataset/Data/</strong>, архивиованный: <strong>VisionProject/NewDataset/dataset.zip</strong>, аннотации к нему будут лежать в файле <strong>VisionProject/NewDataset/NewLabels</strong>.</p>
 </section>
 <section id="id6">
-<h2>2.5 Чистка данных<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h2>
-<p>Полученный датасет и аннотации к нему следует скачать, открыть в RemoApp и просмотреть на предмет неправильной или неточной разметки. Неподходящие по стандартам фото следует удалять или переразмечать вручную. Пример правильно размеченного маркера есть в разделе <a class="reference internal" href="prepearing.html#wellmarked"><span class="std std-ref">1.2 Обработка изображений</span></a>.</p>
+<h2>Чистка данных<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h2>
+<p>Полученный датасет и аннотации к нему следует скачать, открыть в RemoApp и просмотреть на предмет неправильной или неточной разметки. Неподходящие по стандартам фото следует удалять или переразмечать вручную. Пример правильно размеченного маркера есть в разделе <a class="reference internal" href="prepearing.html#wellmarked"><span class="std std-ref">Обработка изображений</span></a>.</p>
+<p>Файл с “чистыми” аннотациями следует назвать <strong>CleanedNewLabels.json</strong> и подгрузить в папку <strong>VisionProject/NewDataset/</strong>. Набор кадров (<strong>/NewDataset/Data/</strong>) можно оставить неронутым или - если в вас говорит перфекционизм - залить “очищенный”.</p>
 </section>
 </section>
 
@@ -108,22 +130,35 @@
 
 <h3>Navigation</h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="prepearing.html">1. Разметка набора данных.</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Сегментация</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">2.1. Что это такое и с чем это есть</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">2.2. Обучение модели (сегментация)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">2.3 Разметка новых кадров</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">2.4 Получение готового датасета</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">2.5 Чистка данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prepearing.html">Разметка набора данных.</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Сегментация</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Подготовка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Обучение модели (сегментация)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">Разметка новых кадров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">Получение готового датасета</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">Чистка данных</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="boxing.html">3. Боксинг маркеров</a></li>
+<li class="toctree-l1"><a class="reference internal" href="finding.html">Поиск маркера</a></li>
+<li class="toctree-l1"><a class="reference internal" href="video_marking.html">Разметка видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="last_words.html">Завершение</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="more_about_seg_alg.html">Пару слов об алгоритме сегментации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="refactor_segmentation.html">Какие рычажки подкручивать, если что</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="all_about_paths.html">Общая базовая информация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="paths_in_collabs.html">Блоки, использующие файловые пути:</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="prepearing.html" title="previous chapter">1. Разметка набора данных.</a></li>
+      <li>Previous: <a href="prepearing.html" title="previous chapter">Разметка набора данных.</a></li>
+      <li>Next: <a href="boxing.html" title="next chapter">3. Боксинг маркеров</a></li>
   </ul></li>
 </ul>
 </div>

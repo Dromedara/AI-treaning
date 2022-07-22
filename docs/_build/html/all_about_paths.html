@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Общая базовая информация &#8212; AI-treaning 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Блоки, использующие файловые пути:" href="paths_in_collabs.html" />
+    <link rel="prev" title="Настройка параметров сегментации" href="refactor_segmentation.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="id1">
+<h1>Общая базовая информация<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h1>
+<p>Ниже приведена базовая информация для работы с путями в коллабах.</p>
+<section id="mainfailinf">
+<span id="id2"></span><h2>Какие вообще пути встречаются:<a class="headerlink" href="#mainfailinf" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Если путь начинается с <strong>./</strong>, значит он считается от текущей папки. Перед запуском блоков с такими путями обязательно проверьте свое положение в файловом дереве</p></li>
+<li><p>Если путь начинается с <strong>drive/MyDrive/</strong> - он идет от корня используемого гугл диска.</p></li>
+</ol>
+<p>После выполнения блока:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;./drive&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>гугл диск встраивается во внутреннее файловое дерево, используемое виртуальной средой.
+Текущая папка значения не имеет.</p>
+<ol class="arabic simple" start="3">
+<li><p>Если путь начинается с <strong>/content/</strong> - он идет от корня файлового древа, используемого внутри виртуальной среды. Текущая папка значения не имеет.</p></li>
+</ol>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Эти три варианта <strong>не всегда</strong> взаимозаменяемы. Если прописываете свои пути, лучше сохраняйте данный изначально формат.</p>
+</div>
+</section>
+<section id="id3">
+<h2>Базовые команды<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<p>Базовые команды для взаимодействия с файловым деревом взяты из языка командной оболочки Bash.</p>
+<p>Ниже приведены самые полезные команды:</p>
+<p>Список файлов в текущей папке:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span>
+</pre></div>
+</div>
+<p>Перемещение по древу:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">&lt;</span><span class="n">имя</span> <span class="n">папки</span><span class="o">&gt;</span> <span class="p">(</span><span class="n">или</span> <span class="o">&lt;..&gt;</span> <span class="o">-</span> <span class="n">возвращение</span> <span class="n">на</span> <span class="n">уровень</span> <span class="n">наверх</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">AI-treaning</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="prepearing.html">Разметка набора данных.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="segmentation.html">Сегментация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boxing.html">3. Боксинг* маркеров</a></li>
+<li class="toctree-l1"><a class="reference internal" href="finding.html">Поиск маркера</a></li>
+<li class="toctree-l1"><a class="reference internal" href="video_marking.html">Разметка видео</a></li>
+<li class="toctree-l1"><a class="reference internal" href="last_words.html">Завершение</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="more_about_seg_alg.html">Пару слов об алгоритме сегментации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="refactor_segmentation.html">Настройка параметров сегментации</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Общая базовая информация</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#mainfailinf">Какие вообще пути встречаются:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Базовые команды</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="paths_in_collabs.html">Блоки, использующие файловые пути:</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="refactor_segmentation.html" title="previous chapter">Настройка параметров сегментации</a></li>
+      <li>Next: <a href="paths_in_collabs.html" title="next chapter">Блоки, использующие файловые пути:</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Dromedara.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/all_about_paths.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
