@@ -1,45 +1,101 @@
-
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>Туториал &#8212; AI-treaning 1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Туториал &mdash; AI-treaning 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Разметка набора данных." href="prepearing.html" />
-    <link rel="prev" title="Детектирование объекта на видео" href="index.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+    <link rel="prev" title="Детектирование объекта на видео" href="index.html" /> 
+</head>
 
-  </head><body>
-  
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> AI-treaning
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><strong>Туториал</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Требования к “железу”:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Куда тыкать, чтоб просто работало (Максимально подробная инструкция):</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="prepearing.html">Разметка набора данных.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="segmentation.html">Сегментация</a></li>
+<li class="toctree-l3"><a class="reference internal" href="finding.html">Поиск маркера</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#podrobneeocode">Подробнее о коде:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="more_about_seg_alg.html">Пару слов об алгоритме сегментации</a></li>
+<li class="toctree-l3"><a class="reference internal" href="refactor_segmentation.html">Какие рычажки подкручивать (Сегментация)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="more_about_yolo.html">Немного о YOLO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="refactor_yolo.html">Какие рычажки подкручивать (Разметка)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#mainfails">Что могло пойти не так?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="main_defs.html">Общая базовая информация</a></li>
+<li class="toctree-l3"><a class="reference internal" href="paths_in_collabs.html">Блоки, использующие файловые пути:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="results.html">Итоги работы</a></li>
+</ul>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
+        </div>
+      </div>
+    </nav>
 
-          <div class="body" role="main">
-            
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AI-treaning</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><strong>Туториал</strong></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/metodic.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="id1">
-<h1><strong>Туториал</strong><a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h1>
+<h1><strong>Туториал</strong><a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
 <p>Это методическое пособие написано, чтобы любой желающий мог повторить наш эксперимент и обучить ИИ, способный быстро и точно обнаружить нужный объект на видео.
 Писались они с расчетом на то, что пользователь может не иметь (и вероятнее всего не имеет) опыта обучения моделей.</p>
 <section id="id2">
-<h2>Требования к “железу”:<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<h2>Требования к “железу”:<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
 <p>Для обучения моделей мы использовали ресурсы Google colab, поэтому требования к аппаратуре довольно низкие. Любой современный ноутбук легко позволит вам выполнить все пункты. Однако для корректной работы потребуется <strong>стабильное подключение к Интернету</strong>.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -47,7 +103,7 @@
 </div>
 </section>
 <section id="id3">
-<h2>Куда тыкать, чтоб просто работало (Максимально подробная инструкция):<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<h2>Куда тыкать, чтоб просто работало (Максимально подробная инструкция):<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="prepearing.html">Разметка набора данных.</a><ul>
@@ -80,7 +136,7 @@
 </div>
 </section>
 <section id="podrobneeocode">
-<span id="id4"></span><h2>Подробнее о коде:<a class="headerlink" href="#podrobneeocode" title="Permalink to this heading">¶</a></h2>
+<span id="id4"></span><h2>Подробнее о коде:<a class="headerlink" href="#podrobneeocode" title="Permalink to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="more_about_seg_alg.html">Пару слов об алгоритме сегментации</a></li>
@@ -101,7 +157,7 @@
 </div>
 </section>
 <section id="mainfails">
-<span id="id5"></span><h2>Что могло пойти не так?<a class="headerlink" href="#mainfails" title="Permalink to this heading">¶</a></h2>
+<span id="id5"></span><h2>Что могло пойти не так?<a class="headerlink" href="#mainfails" title="Permalink to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="main_defs.html">Общая базовая информация</a><ul>
@@ -120,74 +176,34 @@
 </section>
 
 
+           </div>
           </div>
-          
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Детектирование объекта на видео" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="prepearing.html" class="btn btn-neutral float-right" title="Разметка набора данных." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Dromedara.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">AI-treaning</a></h1>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#"><strong>Туториал</strong></a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="results.html">Итоги работы</a></li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="index.html" title="previous chapter"><strong>Детектирование объекта на видео</strong></a></li>
-      <li>Next: <a href="prepearing.html" title="next chapter">Разметка набора данных.</a></li>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
-
-
-
-
-
-
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2022, Dromedara.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="_sources/metodic.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
-
-    
-
-    
-  </body>
+</body>
 </html>
