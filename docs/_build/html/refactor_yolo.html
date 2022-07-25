@@ -18,7 +18,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Общая базовая информация" href="all_about_paths.html" />
+    <link rel="next" title="Общая базовая информация" href="main_defs.html" />
     <link rel="prev" title="Немного о YOLO" href="more_about_yolo.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -28,12 +28,13 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="all_about_paths.html" title="Общая базовая информация"
+          <a href="main_defs.html" title="Общая базовая информация"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="more_about_yolo.html" title="Немного о YOLO"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">AI-treaning 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="metodic.html" accesskey="U"><strong>Туториал</strong></a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Какие рычажки подкручивать (Разметка)</a></li> 
       </ul>
     </div>  
@@ -45,6 +46,53 @@
             
   <section id="id1">
 <h1>Какие рычажки подкручивать (Разметка)<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h1>
+<section id="id2">
+<h2>Тренировка модели<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<p>Тренировка этой модели, как и тренировка модели сегментации, происходит эпохами (однако на этот раз тестировка вынесена в отдельный блок). Количество эпох задается непосредственно при запуске обучения (блок <strong>#23</strong> (<strong>YOLOv5</strong> <strong>YOLOv3tiny</strong>), <strong>#25</strong> (<strong>YOLOv3</strong>)).
+Пример:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!python train.py --img 416 --batch 8 **--epochs 50** --data coco128.yaml --weights yolov5s.pt --nosave --cache
+</pre></div>
+</div>
+<p>По умолчанию в коде стоит 50 эпох. Результат при таком количестве итераций будет иметь весьма приличное качество, однако, если остро стоит вопрос недостатка времени, количество эпох можно <strong>снизить</strong> до 30, а то и меньше. Однако важно понимать, что на результате это скажется.</p>
+</section>
+<section id="yolo">
+<h2>Замена версии YOLO<a class="headerlink" href="#yolo" title="Permalink to this heading">¶</a></h2>
+<p>Важно понимать, что разные версии YOLO дают разные результаты на разных датасетах, при разных промежутках времени, и имеет смысл использовать разные версии в разных случаях.
+(Здесь: :ref:`` - вы можете ознакомиться с результатами, полученными нами в результате обучения трех представленных версий YOLO).</p>
+<p>В первую очередь стоит посмотреть <a class="reference external" href="https://docs.ultralytics.com/">официальную документацию</a> - для каждой семьи есть подробный туториал по подключению. Но ессли говорить вкратце - в рамках одной семьи, переключение от однй версии к другой сводится к подключению других весов (файла с расширением .pt):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!python train.py --img 416 --batch 8 --epochs 50 --data coco128.yaml --weights **yolov3.pt** --nosave --cache
+</pre></div>
+</div>
+<p>Проблемы могут возникнуть с тем, что бы подрузить эти файлы в ваш коллаб. Так, для <strong>YOLOv5</strong> никаких дополнительных действий не требуется, а вот для <strong>YOLOv3</strong> (и v3-tiny соответственно) веса необходмо подгрузить отдельной командой (<strong>#18</strong>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!/content/yolov3/data/scripts/download_weights.sh
+</pre></div>
+</div>
+<p>Список файлов с весами любой семьи YOLO есть на ее официально гитхабе, там же обязательно будет туториал по подключению.</p>
+</section>
+<section id="savedata">
+<span id="id4"></span><h2>Сохранение данных<a class="headerlink" href="#savedata" title="Permalink to this heading">¶</a></h2>
+<p>Если вам нужны будут данные, полученные в результате обучения и/или тестирования, есть способ скачать их в формате csv: в самом конце вывода блока обучания будет указана папка, в которую будут сохранены результаты. Скорее всего это будет:</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/резалт_сэйв.png"><img alt="alternate text" src="_images/резалт_сэйв.png" style="width: 325.6px; height: 104.50000000000001px;" /></a>
+</figure>
+<p>Перенести данные на гугл диск можно командой формата:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!cp /content/yolov5/&lt;указанный путь&gt;/файл.csv &lt;путь к файлу, по которому вы хотите его сохранить&gt;/файл.csv
+</pre></div>
+</div>
+</section>
+<section id="test-train">
+<h2>Папки test и train<a class="headerlink" href="#test-train" title="Permalink to this heading">¶</a></h2>
+<p>Папки test и train создаюся вами уже после запуска коллаба и используются каак хранилища изображений и аннотаций. Если по каким-то причинам, вам нужно переместить эти папки, не заудьте изменить пути в блоке <strong>#6</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TRAIN_YOLO_DIR</span> <span class="o">=</span> <span class="s1">&#39;/content/train/&#39;</span>
+<span class="n">TEST_YOLO_DIR</span> <span class="o">=</span> <span class="s1">&#39;/content/test/&#39;</span>
+</pre></div>
+</div>
+<p>А также изменииь содержимое файла <strong>coco128.yaml</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">train</span><span class="p">:</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">train</span><span class="o">/</span><span class="n">images</span>  <span class="c1"># train images (relative to &#39;path&#39;)</span>
+<span class="n">val</span><span class="p">:</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">test</span><span class="o">/</span><span class="n">images</span>  <span class="c1"># val images (relative to &#39;path&#39;)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -55,13 +103,26 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Какие рычажки подкручивать (Разметка)</a><ul>
+<li><a class="reference internal" href="#id2">Тренировка модели</a></li>
+<li><a class="reference internal" href="#yolo">Замена версии YOLO</a></li>
+<li><a class="reference internal" href="#savedata">Сохранение данных</a></li>
+<li><a class="reference internal" href="#test-train">Папки test и train</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="more_about_yolo.html"
                           title="previous chapter">Немного о YOLO</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="all_about_paths.html"
+    <p class="topless"><a href="main_defs.html"
                           title="next chapter">Общая базовая информация</a></p>
   </div>
   <div role="note" aria-label="source link">
@@ -92,12 +153,13 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="all_about_paths.html" title="Общая базовая информация"
+          <a href="main_defs.html" title="Общая базовая информация"
              >next</a> |</li>
         <li class="right" >
           <a href="more_about_yolo.html" title="Немного о YOLO"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">AI-treaning 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="metodic.html" ><strong>Туториал</strong></a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Какие рычажки подкручивать (Разметка)</a></li> 
       </ul>
     </div>

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>AI-treaning tutorial! &#8212; AI-treaning 1.0 documentation</title>
+    <title>Детектирование объекта на видео &#8212; AI-treaning 1.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/classic.css" />
     
@@ -18,7 +18,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Разметка набора данных." href="prepearing.html" /> 
+    <link rel="next" title="Туториал" href="metodic.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -27,10 +27,10 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="prepearing.html" title="Разметка набора данных."
+          <a href="metodic.html" title="Туториал"
              accesskey="N">next</a> |</li>
         <li class="nav-item nav-item-0"><a href="#">AI-treaning 1.0 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href=""><strong>AI-treaning tutorial!</strong></a></li> 
+        <li class="nav-item nav-item-this"><a href=""><strong>Детектирование объекта на видео</strong></a></li> 
       </ul>
     </div>  
 
@@ -39,84 +39,18 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="ai-treaning-tutorial">
-<h1><strong>AI-treaning tutorial!</strong><a class="headerlink" href="#ai-treaning-tutorial" title="Permalink to this heading">¶</a></h1>
-<p>Это методическое пособие написано, чтобы любой желающий мог повторить наш эксперимент и обучить ИИ, способный быстро и точно обнаружить нужный объект на видео.
-Писались они с расчетом на то, что пользователь может не иметь опыта работы с ИИ.
-Если вы относитесь к числу новичков, просто выполняйте шаги по порядку.</p>
-<section id="id1">
-<h2>Требования к “железу”:<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
-<p>Для обучения моделей мы использовали ресурсы Google colab, поэтому требования к аппаратуре довольно низкие. Любой современный ноутбук легко позволит вам выполнить все пункты. Однако для корректной работы потребуется <strong>стабильное подключение к Интернету</strong>.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Предполагается, что на начало у вас уже есть набор данных из ~ 1000 немаркированных кадров</p>
-</div>
-</section>
-<section id="id2">
-<h2>Куда тыкать, чтоб просто работало (Максимально подробная инструкция “для чайников”):<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+  <section id="id1">
+<h1><strong>Детектирование объекта на видео</strong><a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="prepearing.html">Разметка набора данных.</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="prepearing.html#remoapp">Установка Установка RemoApp</a></li>
-<li class="toctree-l2"><a class="reference internal" href="prepearing.html#wellmarked">Обработка изображений</a></li>
-<li class="toctree-l2"><a class="reference internal" href="prepearing.html#id3">Экспорт аннотации</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="segmentation.html">Сегментация</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="segmentation.html#id2">Подготовка</a></li>
-<li class="toctree-l2"><a class="reference internal" href="segmentation.html#studyseg">Обучение модели (сегментация)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="segmentation.html#id4">Разметка новых кадров</a></li>
-<li class="toctree-l2"><a class="reference internal" href="segmentation.html#id5">Получение готового датасета</a></li>
-<li class="toctree-l2"><a class="reference internal" href="segmentation.html#id6">Чистка данных</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="finding.html">Поиск маркера</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="finding.html#id2">Подготовка</a></li>
-<li class="toctree-l2"><a class="reference internal" href="finding.html#id3">Боксинг</a></li>
-<li class="toctree-l2"><a class="reference internal" href="finding.html#yolo">Подключение YOLO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="finding.html#id4">Запуск обучения</a></li>
-<li class="toctree-l2"><a class="reference internal" href="finding.html#id5">Визуализация результатов</a></li>
-<li class="toctree-l2"><a class="reference internal" href="finding.html#id6">Тестирование</a></li>
-<li class="toctree-l2"><a class="reference internal" href="finding.html#id7">Разметка видео</a></li>
-<li class="toctree-l2"><a class="reference internal" href="finding.html#id8">Сохранение размеченного видео</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="last_words.html">Завершение</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metodic.html"><strong>Туториал</strong></a></li>
 </ul>
 </div>
-</section>
-<section id="id3">
-<h2>Подробнее о коде:<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="more_about_seg_alg.html">Пару слов об алгоритме сегментации</a></li>
-<li class="toctree-l1"><a class="reference internal" href="refactor_segmentation.html">Какие рычажки подкручивать (Сегментация)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="refactor_segmentation.html#id2">Регуляция обуения</a></li>
-<li class="toctree-l2"><a class="reference internal" href="refactor_segmentation.html#id3">Регулция разметки</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="more_about_yolo.html">Немного о YOLO</a></li>
-<li class="toctree-l1"><a class="reference internal" href="refactor_yolo.html">Какие рычажки подкручивать (Разметка)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results.html">Итоги работы</a></li>
 </ul>
 </div>
-</section>
-<section id="mainfails">
-<span id="id4"></span><h2>Что могло пойти не так?<a class="headerlink" href="#mainfails" title="Permalink to this heading">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="all_about_paths.html">Общая базовая информация</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="all_about_paths.html#mainfailinf">Какие пути встречаются</a></li>
-<li class="toctree-l2"><a class="reference internal" href="all_about_paths.html#basecomm">Базовые команды</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="paths_in_collabs.html">Блоки, использующие файловые пути:</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="seg_paths.html">Сегментация. Блоки, использующие фаловые пути</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yolo_paths.html">Разметка. Блоки, использующие фаловые пути</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</section>
 </section>
 
 
@@ -127,22 +61,9 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <div>
-    <h3><a href="#">Table of Contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#"><strong>AI-treaning tutorial!</strong></a><ul>
-<li><a class="reference internal" href="#id1">Требования к “железу”:</a></li>
-<li><a class="reference internal" href="#id2">Куда тыкать, чтоб просто работало (Максимально подробная инструкция “для чайников”):</a></li>
-<li><a class="reference internal" href="#id3">Подробнее о коде:</a></li>
-<li><a class="reference internal" href="#mainfails">Что могло пойти не так?</a></li>
-</ul>
-</li>
-</ul>
-
-  </div>
-  <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="prepearing.html"
-                          title="next chapter">Разметка набора данных.</a></p>
+    <p class="topless"><a href="metodic.html"
+                          title="next chapter"><strong>Туториал</strong></a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
@@ -172,10 +93,10 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="prepearing.html" title="Разметка набора данных."
+          <a href="metodic.html" title="Туториал"
              >next</a> |</li>
         <li class="nav-item nav-item-0"><a href="#">AI-treaning 1.0 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href=""><strong>AI-treaning tutorial!</strong></a></li> 
+        <li class="nav-item nav-item-this"><a href=""><strong>Детектирование объекта на видео</strong></a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

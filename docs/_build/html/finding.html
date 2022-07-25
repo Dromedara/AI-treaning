@@ -18,7 +18,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Завершение" href="last_words.html" />
+    <link rel="next" title="Пару слов об алгоритме сегментации" href="more_about_seg_alg.html" />
     <link rel="prev" title="Сегментация" href="segmentation.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -28,12 +28,13 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="last_words.html" title="Завершение"
+          <a href="more_about_seg_alg.html" title="Пару слов об алгоритме сегментации"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="segmentation.html" title="Сегментация"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">AI-treaning 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="metodic.html" accesskey="U"><strong>Туториал</strong></a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Поиск маркера</a></li> 
       </ul>
     </div>  
@@ -73,15 +74,19 @@
 <p>Некоторые блоки даны с сохранением выводов. Сверяйте их с теми, что получатся у вас в качестве доп.проверки.</p>
 </div>
 <p>Боксинг - это помещение маркера внутрь прямоугольного сектора, грани которого проходят через крайние точки выделенного маркера. То есть, появление того самого красивого прямоугольничка, который нам нужен.
-Происходит этот процесс в блоках с <strong>#1</strong> по <strong>#14</strong>. В <strong>#1</strong> нужно будет дать разрешение (как вот здесь: <a class="reference internal" href="segmentation.html#studyseg"><span class="std std-ref">Обучение модели (сегментация)</span></a>)</p>
-<p>Если вы соблюли структуру файлов, то просто запускайте по порядку блоки. Если вы все же используете другую структуру, то смотрите вот сюда: <a class="reference internal" href="all_about_paths.html#mainfailinf"><span class="std std-ref">Какие пути встречаются</span></a> и сюда: <a class="reference internal" href="yolo_paths.html#yolopaths"><span class="std std-ref">Разметка. Блоки, использующие фаловые пути</span></a></p>
-<p>Если появятся проблемы в блоках с “базовыми коммандами” (cd, ls), смотрите сюда: <a class="reference internal" href="all_about_paths.html#basecomm"><span class="std std-ref">Базовые команды</span></a></p>
+Происходит этот процесс в блоках с <strong>#1</strong> по <strong>#14</strong>. В <strong>#1</strong> нужно будет дать разрешение (как вот здесь: <a class="reference internal" href="segmentation.html#studyseg"><span class="std std-ref">Обучение модели (сегментация)</span></a>). Сам процесс боксирования запускается в блоке <strong>#14</strong> командами вида:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">generate_yolov5_set</span><span class="p">(</span><span class="n">train_annotations</span><span class="p">,</span> <span class="s1">&#39;train&#39;</span><span class="p">)</span>
+<span class="n">generate_yolov5_set</span><span class="p">(</span><span class="n">test_annotations</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Если вы соблюли структуру файлов, то просто запускайте по порядку блоки. Если вы все же используете другую структуру, то смотрите вот сюда: <a class="reference internal" href="main_defs.html#mainfailinf"><span class="std std-ref">Какие пути встречаются</span></a> и сюда: <a class="reference internal" href="yolo_paths.html#yolopaths"><span class="std std-ref">Разметка. Блоки, использующие фаловые пути</span></a></p>
+<p>Если появятся проблемы в блоках с “базовыми коммандами” (cd, ls), смотрите сюда: <a class="reference internal" href="main_defs.html#basecomm"><span class="std std-ref">Базовые команды</span></a></p>
 <p>От начала и до конца процесс займет порядка получаса (при датасете в ~4000 кадров).</p>
 <p>В <strong>YOLOv5</strong>, <strong>YOLOv3</strong> и <strong>YOLOv3tiny</strong> данный этап проходит одинаково.</p>
 </section>
 <section id="yolo">
 <h2>Подключение YOLO<a class="headerlink" href="#yolo" title="Permalink to this heading">¶</a></h2>
-<p>Продолжаем запускать по порядку блоки.</p>
+<p><strong>Продолжаем запускать по порядку блоки</strong>.</p>
 <p><strong>Несколько уточнений:</strong></p>
 <p>(<strong>YOLOv5</strong>) Блоки <strong>#15</strong> и <strong>#17</strong> отвечают за подключение YOLO и установку зависимостей соответственно. После их запуска должна быть выведена “простыня” из различных уведомлений.</p>
 <div class="admonition tip">
@@ -128,25 +133,17 @@
 <h2>Визуализация результатов<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h2>
 <p><strong>Продолжаем запускать по порядку.</strong></p>
 <p>Блок <strong>#24</strong> (<strong>YOLOv5</strong>, <strong>YOLOv3tiny</strong>) или <strong>#26</strong> (<strong>YOLOv3</strong>) в выводе дает нам окно с графиками по данным, полученным за время обучения модели. Скачать их получится только в формате изображения.</p>
-<p>Если вам все-таки нужны эти данные, есть способ скачать их в формате csv: в самом конце вывода блока обучания будет указана папка, в которую будут сохранены результаты. Скорее всего это будет:</p>
-<figure class="align-center">
-<a class="reference internal image-reference" href="_images/резалт_сэйв.png"><img alt="alternate text" src="_images/резалт_сэйв.png" style="width: 325.6px; height: 104.50000000000001px;" /></a>
-</figure>
-<p>Перенести данные на гугл диск можно командой формата:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!cp /content/yolov5/&lt;указанный путь&gt;/файл.csv &lt;путь к файлу, по которому вы хотите его сохранить&gt;/файл.csv
-</pre></div>
-</div>
-<p>Сделать это однако лучше <strong>после</strong> выполнения следующего пункта.</p>
+<p>Если вам нужно соранить данные в ином виде, почитать об этом можно здесь: <a class="reference internal" href="refactor_yolo.html#savedata"><span class="std std-ref">Сохранение данных</span></a></p>
 </section>
 <section id="id6">
 <h2>Тестирование<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h2>
-<p>Продолжаем.</p>
-<p>После выполнения блока <strong>#25</strong> (<strong>YOLOv5</strong>), <strong>#27</strong> (<strong>YOLOv3tiny</strong>) или <strong>#28</strong> (<strong>YOLOv3</strong>) в папке <strong>VisionProject/Model</strong> появится модель обученная моделька.</p>
+<p><strong>Продолжаем.</strong></p>
+<p>После выполнения блока <strong>#25</strong> (<strong>YOLOv5</strong>), <strong>#27</strong> (<strong>YOLOv3tiny</strong>) или <strong>#28</strong> (<strong>YOLOv3</strong>) в папке <strong>VisionProject/Model</strong> появятся веса.</p>
 </section>
 <section id="id7">
 <h2>Разметка видео<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h2>
 <p>Мы наконец-то добрались! Осталось совсем немного)</p>
-<p>Продолжаем запускать, предварительно загрузив видео для разметки в папку <strong>VisionProject/Video</strong>!</p>
+<p><strong>Продолжаем запускать</strong>, предварительно загрузив видео для разметки в папку <strong>VisionProject/Video</strong>!</p>
 <p>Блок <strong>#29</strong> (<strong>YOLOv5</strong>), <strong>#30</strong> (<strong>YOLOv3tiny</strong>) или <strong>#31</strong> (<strong>YOLOv3</strong>) запускает обработку видео.
 Пример:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!python detect.py **--source /content/drive/MyDrive/VisionProject/Videos/video2.mp4** --weights /content/yolov3/weight1.pt --img 416 --save-txt --save-conf
@@ -165,8 +162,19 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!mv /content/yolov5/&lt;указанный путь&gt;/видео.mp4 /content/drive/MyDrive/VisionProject/Resault/видео.mp4
 </pre></div>
 </div>
-<p>&lt;Указанный путь&gt; будет дан в выводе блока разметки видео, в самом конце.</p>
+<p>&lt;Указанный путь&gt; будет дан в выводе блока разметки видео, в самом конце:</p>
+<figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="_images/резалт_сэйв.png"><img alt="alternate text" src="_images/резалт_сэйв.png" style="width: 325.6px; height: 104.50000000000001px;" /></a>
+<figcaption>
+<p><span class="caption-text">Пример пути</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>Видео будет сохранено в папку <strong>VisionProject/Resault</strong>.</p>
+</section>
+<section id="id9">
+<h2>Завершение<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h2>
+<p>Итак, поздравляю! Вы смогли разметить видео!</p>
+<p>Если вы хотите немного больше узнать о коде, вы можете почитать об этом вот здесь: <a class="reference internal" href="metodic.html#podrobneeocode"><span class="std std-ref">Подробнее о коде:</span></a>.</p>
 </section>
 </section>
 
@@ -189,6 +197,7 @@
 <li><a class="reference internal" href="#id6">Тестирование</a></li>
 <li><a class="reference internal" href="#id7">Разметка видео</a></li>
 <li><a class="reference internal" href="#id8">Сохранение размеченного видео</a></li>
+<li><a class="reference internal" href="#id9">Завершение</a></li>
 </ul>
 </li>
 </ul>
@@ -201,8 +210,8 @@
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="last_words.html"
-                          title="next chapter">Завершение</a></p>
+    <p class="topless"><a href="more_about_seg_alg.html"
+                          title="next chapter">Пару слов об алгоритме сегментации</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
@@ -232,12 +241,13 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="last_words.html" title="Завершение"
+          <a href="more_about_seg_alg.html" title="Пару слов об алгоритме сегментации"
              >next</a> |</li>
         <li class="right" >
           <a href="segmentation.html" title="Сегментация"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">AI-treaning 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="metodic.html" ><strong>Туториал</strong></a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Поиск маркера</a></li> 
       </ul>
     </div>

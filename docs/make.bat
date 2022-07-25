@@ -23,6 +23,7 @@ if errorlevel 9009 (
 	exit /b 1
 )
 
+
 if "%1" == "" goto help
 
 %SPHINXBUILD% -M %1 %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
