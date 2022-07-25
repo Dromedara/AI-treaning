@@ -30,7 +30,7 @@
     def get_mask(base_img, return_bbox=False, except_points=[]):
     ...
 
-        if is_ok and prediction[0]['scores'][i] > **0.7**:
+        if is_ok and prediction[0]['scores'][i] > 0.7:
           bboxList.append(prediction[0]['boxes'][i].detach().cpu().numpy())
           maskList.append(prediction[0]['masks'][i, 0].mul(255).byte().cpu().numpy())
 
