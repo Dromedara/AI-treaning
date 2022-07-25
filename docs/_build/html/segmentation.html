@@ -8,30 +8,39 @@
 
     <title>Сегментация &#8212; AI-treaning 1.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
+    
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="3. Боксинг маркеров" href="boxing.html" />
-    <link rel="prev" title="Разметка набора данных." href="prepearing.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
+    <link rel="next" title="Поиск маркера" href="finding.html" />
+    <link rel="prev" title="Разметка набора данных." href="prepearing.html" /> 
   </head><body>
-  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="finding.html" title="Поиск маркера"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="prepearing.html" title="Разметка набора данных."
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">AI-treaning 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Сегментация</a></li> 
+      </ul>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          
-
           <div class="body" role="main">
             
   <section id="id1">
@@ -58,16 +67,16 @@
 </figcaption>
 </figure>
 <p>Загрузите кадры вашего набора данных в папку: <strong>VisionProject/Dataset/Data/</strong> Затем загрузите файл <strong>“Labels.json”</strong>, который у вас был после разметки кадров шагов. <strong>“NewLabels”</strong> может не существовать вовсе, либо быть копией <strong>“Labels”</strong>
-Так же <strong>необходимо залить видео</strong>, которые послужать исходным материалом для новых размеченных кадров. Их советую подгружать в папку <strong>VisionProject/Videos</strong>.</p>
-<p>Вы можете использовать свою собственную структуру, если хотите, но вам придется изменить <strong>пути к файлам</strong> (Подробнее здесь: <a class="reference internal" href="index.html#mainfails"><span class="std std-ref">Файловые пути: что могло пойти не так?</span></a>)</p>
+Так же заливаем видео, которые послужат исходным материалом для новых размеченных кадров (Лучше сделать это сейчас, но если что - можно и потом). Их советую подгружать в папку <strong>VisionProject/Videos</strong>.</p>
+<p>Вы можете использовать свою собственную структуру, если хотите, но вам придется изменить <strong>пути к файлам</strong> (Подробнее здесь: <a class="reference internal" href="index.html#mainfails"><span class="std std-ref">Что могло пойти не так?</span></a>)</p>
 <p><strong>Обязательно скопируйте</strong> google collab из <strong>“code/Segmentation.ipynb”</strong> на свой google drive.</p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <p>Collab должен лежать <strong>вне</strong> папки <strong>VisionProject</strong></p>
 </div>
 </section>
-<section id="id3">
-<h2>Обучение модели (сегментация)<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<section id="studyseg">
+<span id="id3"></span><h2>Обучение модели (сегментация)<a class="headerlink" href="#studyseg" title="Permalink to this heading">¶</a></h2>
 <p>Процесс обучения модели происходит в блоках с <strong>#1</strong> по <strong>#13</strong>. Если вы правильно выполнили предыдущие шаги, вам остается только запускать блоки кода один за другим. Потребуется только одно дополнительные действие: в блоке <strong>#3</strong> отребуется дать разрешение на подключение к гугл диску (рис 12).</p>
 <figure class="align-center" id="id9">
 <a class="reference internal image-reference" href="_images/разрешение.png"><img alt="alternate text" src="_images/разрешение.png" style="width: 746.4000000000001px; height: 200.0px;" /></a>
@@ -75,7 +84,7 @@
 <p><span class="caption-text">Запрос на разрешение</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<p>Если что-то пошло не так, обращайтесь вот сюда: <a class="reference internal" href="all_about_paths.html#mainfailinf"><span class="std std-ref">Какие вообще пути встречаются:</span></a> и сюда <a class="reference internal" href="seg_paths.html#segmentationpaths"><span class="std std-ref">Сегментация. Блоки, использующие фаловые пути</span></a>, так как с вероятностью в 99% проблема будет связана с путями.</p>
+<p>Если что-то пошло не так, обращайтесь вот сюда: <a class="reference internal" href="all_about_paths.html#mainfailinf"><span class="std std-ref">Какие пути встречаются</span></a>, сюда <a class="reference internal" href="seg_paths.html#segmentationpaths"><span class="std std-ref">Сегментация. Блоки, использующие фаловые пути</span></a> или сюда <a class="reference internal" href="all_about_paths.html#basecomm"><span class="std std-ref">Базовые команды</span></a>.</p>
 <p>Обучение может длится порядка <strong>3-6 часов</strong>, в зависимости от стабильности интернета и объема исходного датасета.</p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
@@ -85,7 +94,7 @@
 <section id="id4">
 <h2>Разметка новых кадров<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
 <p>Разметка новых кадров начинается с блока <strong>#14</strong> и идет до конца.
-Напомнаю, что видео лежат в папке <strong>VisionProject/Videos/</strong>. Внесите названия в блок <strong>#15</strong> (Можно ставить сколько угодно вызовов функций, главное не забывайте менять названия видео).</p>
+Напомнаю, что видео лежат в папке <strong>VisionProject/Videos/</strong> (Если вы не залили их раньше - самое время это исправить). Внесите названия в блок <strong>#15</strong> (Можно ставить сколько угодно вызовов функций, главное не забывайте менять названия видео).</p>
 <p><strong>Пример</strong>
 Для видео с названием <strong>video1</strong> строка кода, отвечающая за подключение будет выглядеть как:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">get_frames</span><span class="p">(</span><span class="s1">&#39;/content/drive/MyDrive/VisionProject/Videos/video1.mp4&#39;</span><span class="p">,</span> <span class="s1">&#39;./videos/&#39;</span><span class="p">)</span>
@@ -113,55 +122,43 @@
 </section>
 
 
+            <div class="clearer"></div>
           </div>
-          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">AI-treaning</a></h1>
-
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="prepearing.html">Разметка набора данных.</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Сегментация</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">Подготовка</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">Обучение модели (сегментация)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">Разметка новых кадров</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">Получение готового датасета</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">Чистка данных</a></li>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Сегментация</a><ul>
+<li><a class="reference internal" href="#id2">Подготовка</a></li>
+<li><a class="reference internal" href="#studyseg">Обучение модели (сегментация)</a></li>
+<li><a class="reference internal" href="#id4">Разметка новых кадров</a></li>
+<li><a class="reference internal" href="#id5">Получение готового датасета</a></li>
+<li><a class="reference internal" href="#id6">Чистка данных</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="boxing.html">3. Боксинг маркеров</a></li>
-<li class="toctree-l1"><a class="reference internal" href="finding.html">Поиск маркера</a></li>
-<li class="toctree-l1"><a class="reference internal" href="video_marking.html">Разметка видео</a></li>
-<li class="toctree-l1"><a class="reference internal" href="last_words.html">Завершение</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="more_about_seg_alg.html">Пару слов об алгоритме сегментации</a></li>
-<li class="toctree-l1"><a class="reference internal" href="refactor_segmentation.html">Какие рычажки подкручивать, если что</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="all_about_paths.html">Общая базовая информация</a></li>
-<li class="toctree-l1"><a class="reference internal" href="paths_in_collabs.html">Блоки, использующие файловые пути:</a></li>
 </ul>
 
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="prepearing.html" title="previous chapter">Разметка набора данных.</a></li>
-      <li>Next: <a href="boxing.html" title="next chapter">3. Боксинг маркеров</a></li>
-  </ul></li>
-</ul>
-</div>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="prepearing.html"
+                          title="previous chapter">Разметка набора данных.</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="finding.html"
+                          title="next chapter">Поиск маркера</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/segmentation.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -172,32 +169,29 @@
     </div>
 </div>
 <script>document.getElementById('searchbox').style.display = "block"</script>
-
-
-
-
-
-
-
-
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="footer">
-      &copy;2022, Dromedara.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="_sources/segmentation.rst.txt"
-          rel="nofollow">Page source</a>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="finding.html" title="Поиск маркера"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="prepearing.html" title="Разметка набора данных."
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">AI-treaning 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Сегментация</a></li> 
+      </ul>
     </div>
-
-    
-
-    
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Dromedara.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.1.
+    </div>
   </body>
 </html>

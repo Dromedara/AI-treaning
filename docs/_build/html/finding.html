@@ -8,97 +8,209 @@
 
     <title>Поиск маркера &#8212; AI-treaning 1.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
+    
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Разметка видео" href="video_marking.html" />
-    <link rel="prev" title="3. Боксинг* маркеров" href="boxing.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
+    <link rel="next" title="Завершение" href="last_words.html" />
+    <link rel="prev" title="Сегментация" href="segmentation.html" /> 
   </head><body>
-  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="last_words.html" title="Завершение"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="segmentation.html" title="Сегментация"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">AI-treaning 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Поиск маркера</a></li> 
+      </ul>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          
-
           <div class="body" role="main">
             
   <section id="id1">
 <h1>Поиск маркера<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h1>
-<p>Обучение происходит у том же Colab, что и боксинг, и для его запуска не требуется никаких дальнейших модификаций диска. Обучение модели будет проходит с помощью архитектуры yolov5.</p>
-<section id="yolov5">
-<h2>4.1 Подключение YOLOv5<a class="headerlink" href="#yolov5" title="Permalink to this heading">¶</a></h2>
-<p>Подключение yolov5 прописано в Colab, и все что от вас требуется - продолжать выполнять блоки кода по порядку.</p>
-<p>Если вас вы хотите подробнее разобраться в процессе использования yolo, изучите блок инструкции “Использование иных версий yolo”.</p>
-</section>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>От начала и до конца процесс должен проходить в один подход - остановиться на серединке и отложить “на попозже” не получится</p>
+</div>
 <section id="id2">
-<h2>4.2 Обучение модели (поиск маркера)<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
-<p>Продолжайте выполнять блоки кода.</p>
+<h2>Подготовка<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<p>Дополним структуру файлов на Гугл Диск:</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/дерево_2.png"><img alt="alternate text" src="_images/дерево_2.png" style="width: 220.0px; height: 164.0px;" /></a>
+</figure>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Так же, в папку <strong>Models</strong> необходимо подгрузить файл <strong>coco128.yaml</strong>. Он находится в репозитории на github.</p>
+</div>
+<p>Разметку будем производить так же с помощью collab, с помощью моделей YOLO. В репозитории лежить полностью готовый код для YOLOv5, YOLOv3 и YOLOv3tiny. Подробнее о том, в каких случаях какой использовать, можно почитать здесь:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Важно</dt>
+<dd class="field-odd"><p>Скопированный collab должен лежать ВНЕ папки <strong>VisionProject</strong></p>
+</dd>
+</dl>
+</section>
+<section id="id3">
+<h2>Боксинг<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Обучение может длится порядка 2 часов для датасета в ~6000 кадров. Внимание! Вам все также необходимо находится в непосредственной близости от работающего колаба.</p>
+<p>Некоторые блоки даны с сохранением выводов. Сверяйте их с теми, что получатся у вас в качестве доп.проверки.</p>
+</div>
+<p>Боксинг - это помещение маркера внутрь прямоугольного сектора, грани которого проходят через крайние точки выделенного маркера. То есть, появление того самого красивого прямоугольничка, который нам нужен.
+Происходит этот процесс в блоках с <strong>#1</strong> по <strong>#14</strong>. В <strong>#1</strong> нужно будет дать разрешение (как вот здесь: <a class="reference internal" href="segmentation.html#studyseg"><span class="std std-ref">Обучение модели (сегментация)</span></a>)</p>
+<p>Если вы соблюли структуру файлов, то просто запускайте по порядку блоки. Если вы все же используете другую структуру, то смотрите вот сюда: <a class="reference internal" href="all_about_paths.html#mainfailinf"><span class="std std-ref">Какие пути встречаются</span></a> и сюда: <a class="reference internal" href="yolo_paths.html#yolopaths"><span class="std std-ref">Разметка. Блоки, использующие фаловые пути</span></a></p>
+<p>Если появятся проблемы в блоках с “базовыми коммандами” (cd, ls), смотрите сюда: <a class="reference internal" href="all_about_paths.html#basecomm"><span class="std std-ref">Базовые команды</span></a></p>
+<p>От начала и до конца процесс займет порядка получаса (при датасете в ~4000 кадров).</p>
+<p>В <strong>YOLOv5</strong>, <strong>YOLOv3</strong> и <strong>YOLOv3tiny</strong> данный этап проходит одинаково.</p>
+</section>
+<section id="yolo">
+<h2>Подключение YOLO<a class="headerlink" href="#yolo" title="Permalink to this heading">¶</a></h2>
+<p>Продолжаем запускать по порядку блоки.</p>
+<p><strong>Несколько уточнений:</strong></p>
+<p>(<strong>YOLOv5</strong>) Блоки <strong>#15</strong> и <strong>#17</strong> отвечают за подключение YOLO и установку зависимостей соответственно. После их запуска должна быть выведена “простыня” из различных уведомлений.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Если среди уведомлений появится пара строк красного кода, но подключение не прервется и закончится фразой со словом “Successfully” - сделайте вид, что красных строчек не было.</p>
+</div>
+<p>(<strong>YOLOv3</strong> и <strong>YOLOv3tiny</strong>) К блокам <strong>#15</strong> и <strong>#17</strong> добавляется <strong>#18</strong> - скачивание весов. Принцип определения правильности работы такой же.</p>
+</section>
+<section id="id4">
+<h2>Запуск обучения<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
+<p><strong>Продолжаем запускать по порядку.</strong></p>
+<p>После выполнения блока <strong>#20</strong> (<strong>YOLOv5</strong>) или <strong>#22</strong> (<strong>YOLOv3</strong> и <strong>YOLOv3tiny</strong>) должно быть выведено содержимое файла <strong>coco128.yaml</strong>. Убедитесь, что в нем есть:</p>
+<p>Training and Test file path</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">train</span><span class="p">:</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">train</span><span class="o">/</span><span class="n">images</span>
+<span class="n">val</span><span class="p">:</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">test</span><span class="o">/</span><span class="n">images</span>
+</pre></div>
+</div>
+<p>Number of classes and Class names.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Classes</span>
+<span class="n">nc</span><span class="p">:</span> <span class="mi">1</span>  <span class="c1"># number of classes</span>
+<span class="n">names</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Marker&#39;</span><span class="p">]</span>  <span class="c1"># class names</span>
+</pre></div>
+</div>
+<p>Обучение запускается в блоке <strong>#22</strong> (<strong>YOLOv5</strong>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!python train.py --img 416 --batch 8 --epochs 50 --data coco128.yaml --weights yolov5s.pt --nosave --cache
+</pre></div>
+</div>
+<p>В блоке <strong>#25</strong> (<strong>YOLOv3</strong>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!python train.py --img 416 --batch 8 --epochs 50 --data coco128.yaml --weights yolov3.pt --nosave --cache
+</pre></div>
+</div>
+<p>И в блоке <strong>#23</strong> (<strong>YOLOv3tiny</strong>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!python train.py --img 416 --batch 8 --epochs 50 --data coco128.yaml --weights yolov3-tiny.pt --nosave --cache
+</pre></div>
+</div>
+<p>В <strong>YOLOv3</strong> и <strong>YOLOv3tiny</strong> сразу после запуска вам предложат зарегистрироваться на сайте Wandb - там можно будет отслеживать результаты обучения в режиме реального времени. Делать это или нет- решайте сами.</p>
+<p>Обучение будет длиться очень долго - от 4 часов и до “бесконечности”.</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Все это время вы должны находится рядом с компьютером (работать за ним) - иначе весь прогресс может быть <strong>сброшен</strong>!</p>
 </div>
 </section>
+<section id="id5">
+<h2>Визуализация результатов<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h2>
+<p><strong>Продолжаем запускать по порядку.</strong></p>
+<p>Блок <strong>#24</strong> (<strong>YOLOv5</strong>, <strong>YOLOv3tiny</strong>) или <strong>#26</strong> (<strong>YOLOv3</strong>) в выводе дает нам окно с графиками по данным, полученным за время обучения модели. Скачать их получится только в формате изображения.</p>
+<p>Если вам все-таки нужны эти данные, есть способ скачать их в формате csv: в самом конце вывода блока обучания будет указана папка, в которую будут сохранены результаты. Скорее всего это будет:</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/резалт_сэйв.png"><img alt="alternate text" src="_images/резалт_сэйв.png" style="width: 325.6px; height: 104.50000000000001px;" /></a>
+</figure>
+<p>Перенести данные на гугл диск можно командой формата:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!cp /content/yolov5/&lt;указанный путь&gt;/файл.csv &lt;путь к файлу, по которому вы хотите его сохранить&gt;/файл.csv
+</pre></div>
+</div>
+<p>Сделать это однако лучше <strong>после</strong> выполнения следующего пункта.</p>
+</section>
+<section id="id6">
+<h2>Тестирование<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h2>
+<p>Продолжаем.</p>
+<p>После выполнения блока <strong>#25</strong> (<strong>YOLOv5</strong>), <strong>#27</strong> (<strong>YOLOv3tiny</strong>) или <strong>#28</strong> (<strong>YOLOv3</strong>) в папке <strong>VisionProject/Model</strong> появится модель обученная моделька.</p>
+</section>
+<section id="id7">
+<h2>Разметка видео<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h2>
+<p>Мы наконец-то добрались! Осталось совсем немного)</p>
+<p>Продолжаем запускать, предварительно загрузив видео для разметки в папку <strong>VisionProject/Video</strong>!</p>
+<p>Блок <strong>#29</strong> (<strong>YOLOv5</strong>), <strong>#30</strong> (<strong>YOLOv3tiny</strong>) или <strong>#31</strong> (<strong>YOLOv3</strong>) запускает обработку видео.
+Пример:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!python detect.py **--source /content/drive/MyDrive/VisionProject/Videos/video2.mp4** --weights /content/yolov3/weight1.pt --img 416 --save-txt --save-conf
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Не забудьте поменять название видео!</p>
+</div>
+<p>Разметка также может длиться достаточно долго. Помните, что отходить от компьютера далеко нельзя.</p>
+</section>
+<section id="id8">
+<h2>Сохранение размеченного видео<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h2>
+<p>Последний рывок!</p>
+<p>Последние блоки отвечают за сохранение видео. Пример:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!mv /content/yolov5/&lt;указанный путь&gt;/видео.mp4 /content/drive/MyDrive/VisionProject/Resault/видео.mp4
+</pre></div>
+</div>
+<p>&lt;Указанный путь&gt; будет дан в выводе блока разметки видео, в самом конце.</p>
+<p>Видео будет сохранено в папку <strong>VisionProject/Resault</strong>.</p>
+</section>
 </section>
 
 
+            <div class="clearer"></div>
           </div>
-          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">AI-treaning</a></h1>
-
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="prepearing.html">Разметка набора данных.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="segmentation.html">Сегментация</a></li>
-<li class="toctree-l1"><a class="reference internal" href="boxing.html">3. Боксинг* маркеров</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Поиск маркера</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#yolov5">4.1 Подключение YOLOv5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">4.2 Обучение модели (поиск маркера)</a></li>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Поиск маркера</a><ul>
+<li><a class="reference internal" href="#id2">Подготовка</a></li>
+<li><a class="reference internal" href="#id3">Боксинг</a></li>
+<li><a class="reference internal" href="#yolo">Подключение YOLO</a></li>
+<li><a class="reference internal" href="#id4">Запуск обучения</a></li>
+<li><a class="reference internal" href="#id5">Визуализация результатов</a></li>
+<li><a class="reference internal" href="#id6">Тестирование</a></li>
+<li><a class="reference internal" href="#id7">Разметка видео</a></li>
+<li><a class="reference internal" href="#id8">Сохранение размеченного видео</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="video_marking.html">Разметка видео</a></li>
-<li class="toctree-l1"><a class="reference internal" href="last_words.html">Завершение</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="more_about_seg_alg.html">Пару слов об алгоритме сегментации</a></li>
-<li class="toctree-l1"><a class="reference internal" href="refactor_segmentation.html">Настройка параметров сегментации</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="all_about_paths.html">Общая базовая информация</a></li>
-<li class="toctree-l1"><a class="reference internal" href="paths_in_collabs.html">Блоки, использующие файловые пути:</a></li>
 </ul>
 
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="boxing.html" title="previous chapter">3. Боксинг* маркеров</a></li>
-      <li>Next: <a href="video_marking.html" title="next chapter">Разметка видео</a></li>
-  </ul></li>
-</ul>
-</div>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="segmentation.html"
+                          title="previous chapter">Сегментация</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="last_words.html"
+                          title="next chapter">Завершение</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/finding.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -109,32 +221,29 @@
     </div>
 </div>
 <script>document.getElementById('searchbox').style.display = "block"</script>
-
-
-
-
-
-
-
-
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="footer">
-      &copy;2022, Dromedara.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="_sources/finding.rst.txt"
-          rel="nofollow">Page source</a>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="last_words.html" title="Завершение"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="segmentation.html" title="Сегментация"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">AI-treaning 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Поиск маркера</a></li> 
+      </ul>
     </div>
-
-    
-
-    
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Dromedara.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.1.
+    </div>
   </body>
 </html>

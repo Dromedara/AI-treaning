@@ -19,10 +19,9 @@
 
    prepearing
    segmentation
-   boxing
    finding
-   video_marking
-   last_words
+
+.. _podrobneeocode:
 
 Подробнее о коде:
 -----------------------------------------------------------
@@ -31,13 +30,15 @@
 
    more_about_seg_alg
    refactor_segmentation
+   more_about_yolo
+   refactor_yolo
 
 .. _mainfails:
 
-Файловые пути: что могло пойти не так?
+Что могло пойти не так?
 ------------------------------------------
 .. toctree::
    :maxdepth: 2
 
-   all_about_paths
+   main_defs
    paths_in_collabs
