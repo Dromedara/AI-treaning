@@ -8,39 +8,30 @@
 
     <title>Сегментация &#8212; AI-treaning 1.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
-    
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Поиск маркера" href="finding.html" />
-    <link rel="prev" title="Разметка набора данных." href="prepearing.html" /> 
+    <link rel="prev" title="Разметка набора данных." href="prepearing.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="finding.html" title="Поиск маркера"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="prepearing.html" title="Разметка набора данных."
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">AI-treaning 1.0 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Сегментация</a></li> 
-      </ul>
-    </div>  
+  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
   <section id="id1">
@@ -68,7 +59,7 @@
 </figure>
 <p>Загрузите кадры вашего набора данных в папку: <strong>VisionProject/Dataset/Data/</strong> Затем загрузите файл <strong>“Labels.json”</strong>, который у вас был после разметки кадров шагов. <strong>“NewLabels”</strong> может не существовать вовсе, либо быть копией <strong>“Labels”</strong>
 Так же заливаем видео, которые послужат исходным материалом для новых размеченных кадров (Лучше сделать это сейчас, но если что - можно и потом). Их советую подгружать в папку <strong>VisionProject/Videos</strong>.</p>
-<p>Вы можете использовать свою собственную структуру, если хотите, но вам придется изменить <strong>пути к файлам</strong> (Подробнее здесь: <a class="reference internal" href="index.html#mainfails"><span class="std std-ref">Что могло пойти не так?</span></a>)</p>
+<p>Вы можете использовать свою собственную структуру, если хотите, но вам придется изменить <strong>пути к файлам</strong> (Подробнее здесь: <a class="reference internal" href="metodic.html#mainfails"><span class="std std-ref">Что могло пойти не так?</span></a>)</p>
 <p><strong>Обязательно скопируйте</strong> google collab из <strong>“code/Segmentation.ipynb”</strong> на свой google drive.</p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
@@ -84,7 +75,7 @@
 <p><span class="caption-text">Запрос на разрешение</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<p>Если что-то пошло не так, обращайтесь вот сюда: <a class="reference internal" href="all_about_paths.html#mainfailinf"><span class="std std-ref">Какие пути встречаются</span></a>, сюда <a class="reference internal" href="seg_paths.html#segmentationpaths"><span class="std std-ref">Сегментация. Блоки, использующие фаловые пути</span></a> или сюда <a class="reference internal" href="all_about_paths.html#basecomm"><span class="std std-ref">Базовые команды</span></a>.</p>
+<p>Если что-то пошло не так, обращайтесь вот сюда: <a class="reference internal" href="main_defs.html#mainfailinf"><span class="std std-ref">Какие пути встречаются</span></a>, сюда <a class="reference internal" href="seg_paths.html#segmentationpaths"><span class="std std-ref">Сегментация. Блоки, использующие фаловые пути</span></a> или сюда <a class="reference internal" href="main_defs.html#basecomm"><span class="std std-ref">Базовые команды</span></a>.</p>
 <p>Обучение может длится порядка <strong>3-6 часов</strong>, в зависимости от стабильности интернета и объема исходного датасета.</p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
@@ -122,43 +113,40 @@
 </section>
 
 
-            <div class="clearer"></div>
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <div>
-    <h3><a href="index.html">Table of Contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">Сегментация</a><ul>
-<li><a class="reference internal" href="#id2">Подготовка</a></li>
-<li><a class="reference internal" href="#studyseg">Обучение модели (сегментация)</a></li>
-<li><a class="reference internal" href="#id4">Разметка новых кадров</a></li>
-<li><a class="reference internal" href="#id5">Получение готового датасета</a></li>
-<li><a class="reference internal" href="#id6">Чистка данных</a></li>
+<h1 class="logo"><a href="index.html">AI-treaning</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="metodic.html"><strong>Туториал</strong></a></li>
 </ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="results.html">Итоги работы</a></li>
 </ul>
 
-  </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="prepearing.html"
-                          title="previous chapter">Разметка набора данных.</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="finding.html"
-                          title="next chapter">Поиск маркера</a></p>
-  </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/segmentation.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="metodic.html"><strong>Туториал</strong></a><ul>
+      <li>Previous: <a href="prepearing.html" title="previous chapter">Разметка набора данных.</a></li>
+      <li>Next: <a href="finding.html" title="next chapter">Поиск маркера</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -169,29 +157,32 @@
     </div>
 </div>
 <script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="finding.html" title="Поиск маркера"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="prepearing.html" title="Разметка набора данных."
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">AI-treaning 1.0 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Сегментация</a></li> 
-      </ul>
+    <div class="footer">
+      &copy;2022, Dromedara.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/segmentation.rst.txt"
+          rel="nofollow">Page source</a>
     </div>
-    <div class="footer" role="contentinfo">
-        &#169; Copyright 2022, Dromedara.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.1.
-    </div>
+
+    
+
+    
   </body>
 </html>

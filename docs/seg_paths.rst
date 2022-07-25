@@ -8,18 +8,7 @@
 #6
 ::
 
-    class ArucoDataset(torch.utils.data.Dataset):
-    def __init__(self, root, annFile, transforms):
-        self.root = root
-
-        with open('drive/MyDrive/VisionProject/Dataset/Labels.json') as f:
-          labels = json.load(f)
-
-          self.annotations = list(filter(lambda x: len(x['segmentation'][0]) > 2, labels['annotations']))
-          self.id2file = {
-              meta['id']: meta['file_name']
-              for meta in labels['images']
-          }
+    with open('drive/MyDrive/VisionProject/Dataset/Labels.json') as f:
 
 #10
 ::
