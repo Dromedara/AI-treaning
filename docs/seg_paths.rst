@@ -5,10 +5,15 @@
 
 Файл Segmentation.ipynb:
 ----------------------------
-#6
-::
 
-    with open('drive/MyDrive/VisionProject/Dataset/Labels.json') as f:
+
+#6 ::
+
+    class ArucoDataset(torch.utils.data.Dataset):
+        def __init__(self, root, annFile, transforms):
+            self.root = root
+
+            with open('drive/MyDrive/VisionProject/Dataset/Labels.json') as f:
 
 #10
 ::

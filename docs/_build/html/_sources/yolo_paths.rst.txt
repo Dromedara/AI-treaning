@@ -5,13 +5,13 @@
 
 Файл YOLOv5.ipynb:
 --------------------------
-#2
-::
+
+
+#2 ::
 
     !cp ./drive/MyDrive/VisionProject/NewDataset/CleanedNewLabels.json ./coco_annotations.json
 
-#6
-::
+#6 ::
 
     ARUCO_DATASET_DIR = '/content/drive/MyDrive/VisionProject/NewDataset/Data/
 
@@ -44,13 +44,12 @@
 Файл YOLOv3.ipynb:
 --------------------------
 
-#2
-::
+
+#2 ::
 
     !cp ./drive/MyDrive/VisionProject/NewDataset/CleanedNewLabels.json ./coco_annotations.json
 
-#6
-::
+#6 ::
 
     ARUCO_DATASET_DIR = '/content/drive/MyDrive/VisionProject/NewDataset/Data/'
 
@@ -83,13 +82,12 @@
 Файл YOLOv3tiny.ipynb:
 --------------------------
 
-#2
-::
+
+#2 ::
 
     !cp ./drive/MyDrive/VisionProject/NewDataset/CleanedNewLabels.json ./coco_annotations.json
 
-#6
-::
+#6 ::
 
     ARUCO_DATASET_DIR = '/content/drive/MyDrive/VisionProject/NewDataset/Data/'
 

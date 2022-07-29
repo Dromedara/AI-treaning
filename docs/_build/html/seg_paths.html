@@ -89,11 +89,14 @@
 <span id="id1"></span><h1>Сегментация. Блоки, использующие фаловые пути<a class="headerlink" href="#segmentationpaths" title="Permalink to this heading"></a></h1>
 <section id="segmentation-ipynb">
 <h2>Файл Segmentation.ipynb:<a class="headerlink" href="#segmentation-ipynb" title="Permalink to this heading"></a></h2>
-<section id="id2">
-<h3>#6<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
-<blockquote>
-<div><p>with open(‘drive/MyDrive/VisionProject/Dataset/Labels.json’) as f:</p>
-</div></blockquote>
+<p>#6</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ArucoDataset</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">annFile</span><span class="p">,</span> <span class="n">transforms</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="n">root</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;drive/MyDrive/VisionProject/Dataset/Labels.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</pre></div>
+</div>
 <p>#10</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># use our dataset and defined transformations</span>
 <span class="n">dataset</span> <span class="o">=</span> <span class="n">ArucoDataset</span><span class="p">(</span><span class="s1">&#39;drive/MyDrive/VisionProject/Dataset/Data/&#39;</span><span class="p">,</span> <span class="s1">&#39;drive/MyDrive/VisionProject/Dataset/Labels.json&#39;</span><span class="p">,</span> <span class="n">get_transform</span><span class="p">(</span><span class="n">train</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
@@ -145,7 +148,6 @@
 !mv segmented_dataser.zip ./drive/MyDrive/VisionProject/NewDataset/
 </pre></div>
 </div>
-</section>
 </section>
 </section>
 
