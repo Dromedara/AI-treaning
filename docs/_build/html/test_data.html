@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Данные, полученные после обучения &mdash; AI-treaning 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Итоги работы" href="results.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> AI-treaning
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="metodic.html"><strong>Пошаговая инструкция</strong></a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="results.html">Итоги работы</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Данные, полученные после обучения</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Графики</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AI-treaning</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="results.html">Итоги работы</a> &raquo;</li>
+      <li>Данные, полученные после обучения</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/test_data.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Данные, полученные после обучения<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<p>В результате обучения модели ИИ, способной распознавать и выделять боксом маркер на протяжении всего обрабатываемого видео (точность определения указывается над боксом). С результатом можно ознакомиться во вкладке “Размеченные видео”.</p>
+<p>Ниже представлены сводные таблицы характеристик, полученных в ходе обучения моделей.</p>
+<ul class="simple">
+<li><p><strong>train/box_loss</strong>,  <strong>train/obj_loss</strong>, <strong>train/cls_loss</strong> - учебные потери</p></li>
+<li><p><strong>val/box_loss</strong>, <strong>val/obj_loss</strong>, <strong>val/cls_loss</strong> - потери при валидации</p></li>
+<li><p><strong>metrics/precision</strong> - доля релевантных экземпляров среди извлеченных экземпляров.</p></li>
+<li><p><strong>metrics/recall</strong> - доля релевантных экземпляров, которые были извлечены.</p></li>
+<li><p><strong>metrics/mAP_0.5</strong> - Mean Average Precision (усредненная средняя точность)</p></li>
+<li><p><strong>metrics/mAP_0.5:0.95</strong> - среднее значение mAP по разным порогам IoU, от 0,5 до 0,95, шаг 0,05</p></li>
+</ul>
+<table class="docutils align-default" id="id3">
+<caption><span class="caption-text">YOLOv5 (15 epohs, dataset ~6000)</span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 3%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 9%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 11%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>epoch</p></th>
+<th class="head"><p>train/box_loss</p></th>
+<th class="head"><p>train/obj_loss</p></th>
+<th class="head"><p>train/cls_loss</p></th>
+<th class="head"><p>metrics/precision</p></th>
+<th class="head"><p>metrics/recall</p></th>
+<th class="head"><p>metrics/mAP_0.5</p></th>
+<th class="head"><p>metrics/mAP_0.5:0.95</p></th>
+<th class="head"><p>val/box_loss</p></th>
+<th class="head"><p>val/obj_loss</p></th>
+<th class="head"><p>val/cls_loss</p></th>
+<th class="head"><p>x/lr0</p></th>
+<th class="head"><p>x/lr1</p></th>
+<th class="head"><p>x/lr2</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0.06614</p></td>
+<td><p>0.024384</p></td>
+<td><p>0</p></td>
+<td><p>0.81835</p></td>
+<td><p>0.7892</p></td>
+<td><p>0.7095</p></td>
+<td><p>0.47805</p></td>
+<td><p>0.035513</p></td>
+<td><p>0.015257</p></td>
+<td><p>0</p></td>
+<td><p>0.0033267</p></td>
+<td><p>0.0033267</p></td>
+<td><p>0.070059</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>0.041184</p></td>
+<td><p>0.015834</p></td>
+<td><p>0</p></td>
+<td><p>0.8134</p></td>
+<td><p>0.7898</p></td>
+<td><p>0.74921</p></td>
+<td><p>0.40143</p></td>
+<td><p>0.040589</p></td>
+<td><p>0.011798</p></td>
+<td><p>0</p></td>
+<td><p>0.0062205</p></td>
+<td><p>0.0062205</p></td>
+<td><p>0.03962</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>0.035894</p></td>
+<td><p>0.013939</p></td>
+<td><p>0</p></td>
+<td><p>0.8257</p></td>
+<td><p>0.83356</p></td>
+<td><p>0.76154</p></td>
+<td><p>0.54867</p></td>
+<td><p>0.026407</p></td>
+<td><p>0.011339</p></td>
+<td><p>0</p></td>
+<td><p>0.0086743</p></td>
+<td><p>0.0086743</p></td>
+<td><p>0.0087403</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>0.029626</p></td>
+<td><p>0.012683</p></td>
+<td><p>0</p></td>
+<td><p>0.82969</p></td>
+<td><p>0.81969</p></td>
+<td><p>0.77836</p></td>
+<td><p>0.56598</p></td>
+<td><p>0.024694</p></td>
+<td><p>0.011263</p></td>
+<td><p>0</p></td>
+<td><p>0.00802</p></td>
+<td><p>0.00802</p></td>
+<td><p>0.00802</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>0.025252</p></td>
+<td><p>0.012081</p></td>
+<td><p>0</p></td>
+<td><p>0.83354</p></td>
+<td><p>0.83798</p></td>
+<td><p>0.78002</p></td>
+<td><p>0.61074</p></td>
+<td><p>0.019573</p></td>
+<td><p>0.010555</p></td>
+<td><p>0</p></td>
+<td><p>0.00802</p></td>
+<td><p>0.00802</p></td>
+<td><p>0.00802</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>0.022084</p></td>
+<td><p>0.01146</p></td>
+<td><p>0</p></td>
+<td><p>0.84888</p></td>
+<td><p>0.81794</p></td>
+<td><p>0.79772</p></td>
+<td><p>0.6739</p></td>
+<td><p>0.018206</p></td>
+<td><p>0.010172</p></td>
+<td><p>0</p></td>
+<td><p>0.00736</p></td>
+<td><p>0.00736</p></td>
+<td><p>0.00736</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>0.020321</p></td>
+<td><p>0.011324</p></td>
+<td><p>0</p></td>
+<td><p>0.84237</p></td>
+<td><p>0.82397</p></td>
+<td><p>0.79204</p></td>
+<td><p>0.69258</p></td>
+<td><p>0.017073</p></td>
+<td><p>0.01004</p></td>
+<td><p>0</p></td>
+<td><p>0.0067</p></td>
+<td><p>0.0067</p></td>
+<td><p>0.0067</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>0.018309</p></td>
+<td><p>0.010597</p></td>
+<td><p>0</p></td>
+<td><p>0.84333</p></td>
+<td><p>0.82578</p></td>
+<td><p>0.80487</p></td>
+<td><p>0.70405</p></td>
+<td><p>0.016252</p></td>
+<td><p>0.010063</p></td>
+<td><p>0</p></td>
+<td><p>0.00604</p></td>
+<td><p>0.00604</p></td>
+<td><p>0.00604</p></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>0.017315</p></td>
+<td><p>0.01053</p></td>
+<td><p>0</p></td>
+<td><p>0.82</p></td>
+<td><p>0.85712</p></td>
+<td><p>0.81082</p></td>
+<td><p>0.70478</p></td>
+<td><p>0.016422</p></td>
+<td><p>0.0098283</p></td>
+<td><p>0</p></td>
+<td><p>0.00538</p></td>
+<td><p>0.00538</p></td>
+<td><p>0.00538</p></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>0.01607</p></td>
+<td><p>0.010372</p></td>
+<td><p>0</p></td>
+<td><p>0.84662</p></td>
+<td><p>0.8222</p></td>
+<td><p>0.80401</p></td>
+<td><p>0.71375</p></td>
+<td><p>0.014919</p></td>
+<td><p>0.0098008</p></td>
+<td><p>0</p></td>
+<td><p>0.00472</p></td>
+<td><p>0.00472</p></td>
+<td><p>0.00472</p></td>
+</tr>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>0.015023</p></td>
+<td><p>0.010106</p></td>
+<td><p>0</p></td>
+<td><p>0.83547</p></td>
+<td><p>0.84059</p></td>
+<td><p>0.81548</p></td>
+<td><p>0.72177</p></td>
+<td><p>0.014701</p></td>
+<td><p>0.0097387</p></td>
+<td><p>0</p></td>
+<td><p>0.00406</p></td>
+<td><p>0.00406</p></td>
+<td><p>0.00406</p></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>0.013952</p></td>
+<td><p>0.010024</p></td>
+<td><p>0</p></td>
+<td><p>0.84281</p></td>
+<td><p>0.83624</p></td>
+<td><p>0.81397</p></td>
+<td><p>0.73034</p></td>
+<td><p>0.014431</p></td>
+<td><p>0.0096699</p></td>
+<td><p>0</p></td>
+<td><p>0.0034</p></td>
+<td><p>0.0034</p></td>
+<td><p>0.0034</p></td>
+</tr>
+<tr class="row-even"><td><p>12</p></td>
+<td><p>0.013611</p></td>
+<td><p>0.0098501</p></td>
+<td><p>0</p></td>
+<td><p>0.8329</p></td>
+<td><p>0.84233</p></td>
+<td><p>0.81313</p></td>
+<td><p>0.73521</p></td>
+<td><p>0.014181</p></td>
+<td><p>0.009642</p></td>
+<td><p>0</p></td>
+<td><p>0.00274</p></td>
+<td><p>0.00274</p></td>
+<td><p>0.00274</p></td>
+</tr>
+<tr class="row-odd"><td><p>13</p></td>
+<td><p>0.012893</p></td>
+<td><p>0.0095891</p></td>
+<td><p>0</p></td>
+<td><p>0.83651</p></td>
+<td><p>0.83798</p></td>
+<td><p>0.81462</p></td>
+<td><p>0.74059</p></td>
+<td><p>0.013889</p></td>
+<td><p>0.0095718</p></td>
+<td><p>0</p></td>
+<td><p>0.00208</p></td>
+<td><p>0.00208</p></td>
+<td><p>0.00208</p></td>
+</tr>
+<tr class="row-even"><td><p>14</p></td>
+<td><p>0.012565</p></td>
+<td><p>0.0094591</p></td>
+<td><p>0</p></td>
+<td><p>0.83062</p></td>
+<td><p>0.84582</p></td>
+<td><p>0.81314</p></td>
+<td><p>0.73866</p></td>
+<td><p>0.013838</p></td>
+<td><p>0.0096069</p></td>
+<td><p>0</p></td>
+<td><p>0.00142</p></td>
+<td><p>0.00142</p></td>
+<td><p>0.00142</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id2">
+<h1>Графики<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h1>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="_images/нормал_мап.png"><img alt="alternate text" src="_images/нормал_мап.png" style="width: 640.0px; height: 480.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">metrics/mAP_0.5</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="_images/нормал_метрикс.png"><img alt="alternate text" src="_images/нормал_метрикс.png" style="width: 640.0px; height: 480.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">metrics/precision</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="_images/нормал_рекол.png"><img alt="alternate text" src="_images/нормал_рекол.png" style="width: 640.0px; height: 480.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">metrics/recall</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="results.html" class="btn btn-neutral float-left" title="Итоги работы" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Dromedara.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

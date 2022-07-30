@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Туториал &mdash; AI-treaning 1.0 documentation</title>
+  <title>Пошаговая инструкция &mdash; AI-treaning 1.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -19,7 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Разметка набора данных." href="prepearing.html" />
+    <link rel="next" title="Разметка данных" href="prepearing.html" />
     <link rel="prev" title="Детектирование объекта на видео" href="index.html" /> 
 </head>
 
@@ -39,10 +39,10 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#"><strong>Туториал</strong></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">Требования к “железу”:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">Куда тыкать, чтоб просто работало (Максимально подробная инструкция):</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="prepearing.html">Разметка набора данных.</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><strong>Пошаговая инструкция</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Пошаговая инструкция:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Разметка и обучение алгоритмов МО:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="prepearing.html">Разметка данных</a></li>
 <li class="toctree-l3"><a class="reference internal" href="segmentation.html">Сегментация</a></li>
 <li class="toctree-l3"><a class="reference internal" href="finding.html">Поиск маркера</a></li>
 </ul>
@@ -80,7 +80,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li><strong>Туториал</strong></li>
+      <li><strong>Пошаговая инструкция</strong></li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/metodic.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -91,25 +91,26 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1><strong>Туториал</strong><a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<h1><strong>Пошаговая инструкция</strong><a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
 <p>Это методическое пособие написано, чтобы любой желающий мог повторить наш эксперимент и обучить ИИ, способный быстро и точно обнаружить нужный объект на видео.
 Писались они с расчетом на то, что пользователь может не иметь (и вероятнее всего не имеет) опыта обучения моделей.</p>
 <section id="id2">
-<h2>Требования к “железу”:<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
-<p>Для обучения моделей мы использовали ресурсы Google colab, поэтому требования к аппаратуре довольно низкие. Любой современный ноутбук легко позволит вам выполнить все пункты. Однако для корректной работы потребуется <strong>стабильное подключение к Интернету</strong>.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
+<h2>Пошаговая инструкция:<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<p>Для обучения алгоритмов МО были использованы ресурсы Google colab, что позволяет выполнить все пошаговые действия даже на слабом ноутбуке. Стоит отметить, что для корректной работы потребуется <strong>стабильное подключение к Интернету</strong>.
+Необходима Linux подобная ОС. Все тестировалось на ОС Ubuntu 20.04.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>Предполагается, что на начало у вас уже есть набор данных из ~ 1000 немаркированных кадров</p>
 </div>
 </section>
 <section id="id3">
-<h2>Куда тыкать, чтоб просто работало (Максимально подробная инструкция):<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
+<h2>Разметка и обучение алгоритмов МО:<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="prepearing.html">Разметка набора данных.</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="prepearing.html">Разметка данных</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="prepearing.html#remoapp">Установка Установка RemoApp</a></li>
 <li class="toctree-l2"><a class="reference internal" href="prepearing.html#wellmarked">Обработка изображений</a></li>
-<li class="toctree-l2"><a class="reference internal" href="prepearing.html#id3">Экспорт аннотации</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prepearing.html#id4">Экспорт аннотации</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="segmentation.html">Сегментация</a><ul>
@@ -180,7 +181,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Детектирование объекта на видео" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="prepearing.html" class="btn btn-neutral float-right" title="Разметка набора данных." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="prepearing.html" class="btn btn-neutral float-right" title="Разметка данных" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
